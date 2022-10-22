@@ -8,7 +8,6 @@ import DoctorRegistration from './pages/doctorRegistration';
 import PatientRegistration from './pages/patientRegistration';
 import RegisterDoctor from './templates/registerDoctor';
 
-
 export default function PanaceaApp() {
   return (
     <BrowserRouter>
@@ -24,7 +23,7 @@ export default function PanaceaApp() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PanaceaApp />
+    <PanaceaApp/>
   </React.StrictMode>
 );
 
