@@ -4,8 +4,6 @@ import tw from 'tailwind-styled-components';
 import MetamaskLogo from '../../res/images/metamask.svg';
 
 const Background = styled.section`
-    background-color: rgba(255, 255, 255, .15);  
-    backdrop-filter: blur(20px);
     border-radius: 25px;
     display: flex;
     padding: 2%;
@@ -13,7 +11,6 @@ const Background = styled.section`
     align-items: flex-start;
     margin-left: 10%;
     margin-right: 10%;
-    
     top: 50px;
 
 `

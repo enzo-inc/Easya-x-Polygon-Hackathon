@@ -4,7 +4,7 @@ import TopBar from '../components/topBar/topBar';
 import About from '../components/about/about.js';
 import styled from 'styled-components';
 import ActionButton from '../components/home/actionButton';
-import FirstSection from '../components/learn/firstSection';
+import AllSection from '../components/learn/allSection';
 import tw from 'tailwind-styled-components';
 
 const AppWrapper = styled.section`
@@ -24,14 +24,13 @@ function App() {
   return (
     <AppWrapper>
       <Wrapper>
-      <div className='mt-10'>
+      <div>
       <TopBar />
       <Title />
       <ActionButton />
       </div>
       </Wrapper>
-      <FirstSection />
-      
+      <AllSection />
     </AppWrapper>
   );
 }
