@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import "./styles-custom.css";
+import "./record.css";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -75,18 +75,18 @@ const SignupForm = () => {
   });
   return (
     <form onSubmit={formik.handleSubmit} id="survey-form" name="survey-form">
-      <div class="m-b-md text-center">
+      <div className="m-b-md text-center">
         <h1 id="title">Doctor registration form</h1>
-        <p id="description" class="description" class="text-center">
+        <p id="description" className="description text-center">
           Fill the form to register:
         </p>
       </div>
 
       <fieldset id="">
-        <label for="firstName" id="firstName-label">
+        <label htmlFor="firstName" id="firstName-label">
           First name: *
           <input
-            class=""
+            className=""
             type="text"
             id="firstName"
             name="firstName"
@@ -99,10 +99,10 @@ const SignupForm = () => {
         </label>
       </fieldset>
       <fieldset id="">
-        <label for="lastName" id="lastName-label">
+        <label htmlFor="lastName" id="lastName-label">
           Last name: *
           <input
-            class=""
+            className=""
             type="text"
             id="lastName"
             name="lastName"
@@ -118,10 +118,10 @@ const SignupForm = () => {
         <div>{formik.errors.lastName}</div>
       ) : null}
       <fieldset id="">
-        <label for="nationalID" id="nationalID-label">
+        <label htmlFor="nationalID" id="nationalID-label">
           National ID: *
           <input
-            class=""
+            className=""
             type="text"
             id="nationalID"
             name="nationalID"
@@ -138,7 +138,7 @@ const SignupForm = () => {
       ) : null}
 
       <fieldset id="">
-        <label for="nationality" id="nationality-label">
+        <label htmlFor="nationality" id="nationality-label">
           Nationality: *
           <CountryDropdown
             name="nationality"
@@ -153,10 +153,10 @@ const SignupForm = () => {
       ) : null}
 
       <fieldset id="">
-        <label for="workAddress" id="workAddress-label">
+        <label htmlFor="workAddress" id="workAddress-label">
           Work address: *
           <input
-            class=""
+            className=""
             type="text"
             id="workAddress"
             name="workAddress"
@@ -167,7 +167,7 @@ const SignupForm = () => {
             value={formik.values.workAddress}
           />
           <input
-            class="workAddress"
+            className="workAddress"
             type="text"
             id="workAddress_2"
             name="workAddress_2"
@@ -178,7 +178,7 @@ const SignupForm = () => {
             value={formik.values.workAddress_2}
           />
           <CountryDropdown
-            class=""
+            className=""
             name="country_work"
             value={formik.values.country_work}
             onChange={(_, e) => formik.handleChange(e)}
@@ -201,15 +201,14 @@ const SignupForm = () => {
 
 
       <fieldset id="">
-        <label for="workAddress" id="workAddress-label">
+        <label htmlFor="workAddress" id="workAddress-label">
           Email: *
           <input
             placeholder="Enter your work address (required)"
-            class=""
+            className=""
             id="email"
             name="email"
             type="email"
-            require
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -220,7 +219,7 @@ const SignupForm = () => {
         <div>{formik.errors.email}</div>
       ) : null}
       <fieldset>
-        <label for="number" id="number-label">
+        <label htmlFor="number" id="number-label">
           Phone number: *
           <PhoneInput
             country={"gb"}
@@ -236,16 +235,13 @@ const SignupForm = () => {
       {formik.touched.workAddress && formik.errors.workAddress ? (
         <div>{formik.errors.number}</div>
       ) : null}
-      <button id="submit" type="submit" class="btn">
+      <button id="submit" type="submit" className="btn">
         Submit the form
       </button>
     </form>
   );
 };
 
-function App() {
+export default function RegisterDoctor() {
   return <SignupForm />;
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as constants from '../../constants/title.js';
+import * as constants from '../../constants/title';
 
 const WelcomeText = styled.text`
   font-size: 1.5em;
