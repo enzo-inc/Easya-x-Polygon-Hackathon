@@ -1,4 +1,4 @@
-import * as constants from '../../constants/actionButton.js';
+import * as constants from '../../constants/actionButton';
 import tw from 'tailwind-styled-components';
 import React from "react";
 import { Outlet, Link } from 'react-router-dom';
