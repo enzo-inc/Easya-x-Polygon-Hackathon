@@ -13,7 +13,7 @@ export default function PanaceaApp() {
     <BrowserRouter>
       <Routes>
         <Route path="/"  element={<App />} />
-        <Route path="doctor_registration" element={<RegisterDoctor />} />
+        <Route path="doctor_registration" element={<DoctorRegistration />} />
         <Route path="patient_registration" element={<PatientRegistration />} />
       </Routes>
     </BrowserRouter>
