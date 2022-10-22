@@ -27,19 +27,21 @@ const SubText = styled.text`
     display: flex;
     flex-direction: row;
     text-align: ${props => props.alignment ? "left" : "right"};
+    ${props => props.alignment ? "margin-right: auto" : "margin-left: auto"};
 `
 
 const Wrapper = tw.div`
-    text-left
+    ${props => props.alignment ? "text-left" : "text-right"};
     ml-10
+    mr-10
     flex-row
 `
 
 export default function Section(props) {
     return(
-        <Wrapper>
-            <Text>{props.header}</Text>
-            <SubText>{props.desc}</SubText>
+        <Wrapper alignment={props.alignment}>
+            <Text alignment={props.alignment}>{props.header}</Text>
+            <SubText alignment={props.alignment}>{props.desc}</SubText>
         </Wrapper>
     );
 }
