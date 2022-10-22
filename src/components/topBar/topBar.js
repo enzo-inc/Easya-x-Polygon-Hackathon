@@ -42,7 +42,7 @@ export default function TopBar() {
             <Button>
                 About
             </Button>
-            <Button className="ml-10">
+            <Button className="ml-10 absolute right-0 ">
                 Connect with MetaMask
             </Button>
         </Background>
