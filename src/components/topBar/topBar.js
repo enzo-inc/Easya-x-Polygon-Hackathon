@@ -4,6 +4,8 @@ import tw from 'tailwind-styled-components';
 import MetamaskLogo from '../../res/images/metamask.svg';
 import { Link } from 'react-router-dom';
 import { HashLink as HLink } from 'react-router-hash-link';
+import Web3 from "web3";
+
 
 const Background = styled.section`
     background-color: rgba(255, 255, 255, .15);  
@@ -45,6 +47,17 @@ const Image = styled.div`
 `
 
 export default function TopBar() {
+
+    async function connect() {
+        let accounts;
+        accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const account = accounts[0];
+        if (account !== null) {
+            const button = document.getElementById('button-text');
+            button.textContent = 'Connected!'
+        }
+      }
+
     return(
         <Background>
             <Logo/>
@@ -58,12 +71,12 @@ export default function TopBar() {
                     Learn
                 </Button>
             </HLink>
-            <Button>
+            <Button >
                 About
             </Button>
-            <ButtonDark className="flex items-center ml-10 absolute right-6">
+            <ButtonDark id='connect-button' className="flex items-center ml-10 absolute right-6" onClick={connect} >
                 <Image logo={MetamaskLogo}></Image>
-                <span className="ml-3">Connect with MetaMask</span>
+                <span id ='button-text' className="ml-3">Connect with MetaMask</span>
             </ButtonDark>
         </Background>
     );

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import ActionButton from '../components/home/actionButton';
 import AllSection from '../components/learn/allSection';
 import tw from 'tailwind-styled-components';
+import Web3 from "web3";
 
 const AppWrapper = styled.section`
   text-align: center;
@@ -39,5 +40,15 @@ function App() {
     </AppWrapper>
   );
 }
+
+function connect() {
+document.getElementById('connect-button').addEventListener('click', event => {
+  let account;
+  Web3.ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+    account = accounts[0];
+    console.log(account);
+
+  });
+})};
 
 export default App;
