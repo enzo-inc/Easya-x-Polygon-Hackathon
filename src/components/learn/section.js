@@ -20,13 +20,14 @@ const SubText = styled.text`
     font-family: SpaceMonoRegular;
     font-weight: 50;
     opacity: 100%;
-    max-width: 30em;
+    max-width: 60%;
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-normal-1);
     letter-spacing: var(--letter-spacing-normal-1);
     display: flex;
-    text-align: ${props => props.alignment ? "left" : "right"};
+    text-align: left;
     ${props => props.alignment ? "margin-right: auto" : "margin-left: auto"};
+    margin-top: 2%;
 `
 
 const Wrapper = tw.div`
@@ -35,6 +36,7 @@ const Wrapper = tw.div`
     mr-10
     min-h-screen
     content-around
+    mt-20
 `
 
 export default function Section(props) {
