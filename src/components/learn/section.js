@@ -26,7 +26,7 @@ const SubText = styled.text`
     letter-spacing: var(--letter-spacing-normal-1);
     display: flex;
     flex-direction: row;
-    text-align: left;
+    text-align: ${props => props.alignment ? "left" : "right"};
 `
 
 const Wrapper = tw.div`

@@ -4,6 +4,8 @@ import tw from 'tailwind-styled-components';
 import MetamaskLogo from '../../res/images/metamask.svg';
 
 const Background = styled.section`
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(20px);
     border-radius: 25px;
     display: flex;
     padding: 2%;
@@ -32,6 +34,7 @@ const Button = tw.button`
 const ButtonDark = tw(Button)`
     bg-gray-800
     dark:bg-gray-800
+    rounded-full
 `
 
 const Image = styled.div`
