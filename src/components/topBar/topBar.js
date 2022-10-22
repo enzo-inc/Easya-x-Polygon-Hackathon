@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Logo from "../logo/logo";
 import tw from 'tailwind-styled-components';
 import MetamaskLogo from '../../res/images/metamask.svg';
+import { Link } from 'react-router-dom';
+import { HashLink as HLink } from 'react-router-hash-link';
 
 const Background = styled.section`
     background-color: rgba(255, 255, 255, .15);  
@@ -20,8 +22,7 @@ const Background = styled.section`
 const Button = tw.button`
     text-white
     hover:bg-gray-900 
-    focus:outline-none 
-    focus:ring-4
+    focus:outline-none
     font-medium 
     rounded-lg 
     text-sm 
@@ -47,12 +48,16 @@ export default function TopBar() {
     return(
         <Background>
             <Logo/>
-            <Button className="ml-10">
-                Home
-            </Button>
-            <Button>
-                Learn
-            </Button>
+            <Link to='/'>
+                <Button className="ml-10">
+                    Home
+                </Button>
+            </Link>
+            <HLink to="/#learn">
+                <Button>
+                    Learn
+                </Button>
+            </HLink>
             <Button>
                 About
             </Button>

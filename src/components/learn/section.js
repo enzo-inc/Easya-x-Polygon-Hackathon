@@ -25,7 +25,6 @@ const SubText = styled.text`
     font-weight: var(--font-weight-normal-1);
     letter-spacing: var(--letter-spacing-normal-1);
     display: flex;
-    flex-direction: row;
     text-align: ${props => props.alignment ? "left" : "right"};
     ${props => props.alignment ? "margin-right: auto" : "margin-left: auto"};
 `
@@ -34,7 +33,8 @@ const Wrapper = tw.div`
     ${props => props.alignment ? "text-left" : "text-right"};
     ml-10
     mr-10
-    flex-row
+    min-h-screen
+    content-around
 `
 
 export default function Section(props) {

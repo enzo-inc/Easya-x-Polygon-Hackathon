@@ -1,6 +1,7 @@
 import * as constants from '../../constants/actionButton.js';
 import tw from 'tailwind-styled-components';
 import React from "react";
+import { Outlet, Link } from 'react-router-dom';
 
 const Button = tw.button`
   text-white
@@ -21,8 +22,12 @@ const Button = tw.button`
 export default function ActionButton() {
   return(
     <div>
-      <Button>{constants.GET_STARTED_D}</Button>
-      <Button>{constants.GET_STARTED_P}</Button>
+      <Link to="/doctor_registration">
+        <Button>{constants.GET_STARTED_D}</Button>
+      </Link>
+      <Link to="/patient_registration">
+        <Button>{constants.GET_STARTED_P}</Button>
+      </Link>
     </div>
   );
 }

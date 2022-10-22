@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './app/App.js';
 import reportWebVitals from './reportWebVitals';
+import DoctorRegistration from './pages/doctorRegistration';
+import PatientRegistration from './pages/patientRegistration';
+
+
+export default function PanaceaApp() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/"  element={<App />} />
+        <Route path="doctor_registration" element={<DoctorRegistration />} />
+        <Route path="patient_registration" element={<PatientRegistration />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <PanaceaApp />
   </React.StrictMode>
 );
 
