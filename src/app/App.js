@@ -3,6 +3,7 @@ import Title from '../components/title/title';
 import TopBar from '../components/topBar/topBar';
 import About from '../components/about/about.js';
 import styled from 'styled-components';
+import ActionButton from '../components/home/actionButton';
 
 const ViewWrapper = styled.section`
   margin-left: 10%;
@@ -16,7 +17,7 @@ function App() {
     <ViewWrapper>
       <TopBar />
       <Title />
-      <About />
+      <ActionButton />
     </ViewWrapper>
   );
 }

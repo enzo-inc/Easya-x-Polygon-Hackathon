@@ -1,6 +1,5 @@
 import tw from "tailwind-styled-components";
 import vincenzo from '../../res/images/vincenzo.jpg';
-import oliwia from '../../res/images/oliwia.jpg';
 import React from "react";
 import styled from 'styled-components';
 
@@ -37,16 +36,17 @@ text-gray-700 text-base mb-4
 `
 
 const PositionText = tw.text`
-text-gray-600 text-xs
+text-gray-600 
+text-xl
 `
 
 export default function AboutCard() {
     return(
       <Card>
         <Container>
-          <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src={oliwia} alt="" />          
+          <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src={vincenzo} alt="" />          
           <ColumnContainer>
-              <NameText>Oliwia Stanislawek</NameText>
+              <NameText>Vincenzo</NameText>
                 <DescriptionText>
                 Nam vitae fringilla magna. Integer lobortis lectus ligula, vitae dignissim dui malesuada nec. Maecenas posuere, tortor mattis vestibulum pretium, risus ligula finibus erat, sit amet tempus nunc lacus ut metus. Phasellus sed mattis dui.
                 </DescriptionText>
