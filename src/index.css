@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SpaceMonoRegular";
+  src: local("SpaceMonoRegular"),
+   url("./res/fonts/SpaceMono/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "SpaceMonoBoldItalic";
+  src: local("SpaceMonoBoldItalic"),
+   url("./res/fonts/SpaceMono/SpaceMono-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SpaceMonoBold";
+  src: local("SpaceMonoBold"),
+  url("./res/fonts/SpaceMono/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SpaceMonoItalic";
+  src: local("SpaceMonoItalic"),
+  url("./res/fonts/SpaceMono/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
