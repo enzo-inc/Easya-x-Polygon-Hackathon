@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import ActionButton from '../components/home/actionButton';
 import AllSection from '../components/learn/allSection';
 import tw from 'tailwind-styled-components';
+import Footer from '../components/footer/footer';
 
 const AppWrapper = styled.section`
   text-align: center;
@@ -36,6 +37,8 @@ function App() {
       <ActionButton />
       </Wrapper>
       <AllSection />
+      <About />
+      <Footer />
     </AppWrapper>
   );
 }
