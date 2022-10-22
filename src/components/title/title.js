@@ -45,6 +45,7 @@ const SubTitleText = styled.text`
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-normal-1);
   letter-spacing: var(--letter-spacing-normal-1);
+  margin-bottom: 40px;
 `
 
 const FlexWrapper = styled.section`
