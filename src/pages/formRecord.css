@@ -16,28 +16,11 @@
   margin-top: 5%;
 }
 
-.rect_left{
-	position: fixed;
-	height: 100%;
-    display: inline-block;
-	left: 0px;
-	top: 0px;
-	min-height: 100%;
-	width: 15%;
-	background-color: #005eb8;
+.topbar{
+    background-color: #396afc; 
+    backdrop-filter: blur(20px);
+    padding: 2%;
 }
-
-.rect {
-    height: 100%;
-    width: 15%;
-	position: fixed;
-    display: inline-block;
-	top: 0px;
-    background-color: #005eb8;
-	right: 0;
-	min-height: 100vh;
-}
-
 
 h1 {
   font-family: "Roboto", sans-serif;
