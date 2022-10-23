@@ -14,7 +14,7 @@ contract DoctorNFT is ERC721URIStorage, Ownable {
    constructor () ERC721("DoctorNFT", "DNFT") {}
 
    function mintNFT(address recipient, string memory tokenURI)
-       public onlyOwner
+       public
        returns (uint256)
    {
        _tokenIds.increment();
