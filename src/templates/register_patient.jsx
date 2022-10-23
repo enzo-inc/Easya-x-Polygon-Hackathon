@@ -71,7 +71,7 @@ const SignupForm = () => {
     <form onSubmit={formik.handleSubmit} id="survey-form" name="survey-form">
       <div class="m-b-md text-center">
         <h1 id="title">Patient registration form</h1>
-        <p id="description" class="description" class="text-center">
+        <p id="description" class="description" className="text-center">
           Fill the form to register:
         </p>
       </div>

@@ -64,7 +64,7 @@ export default function ActionButton() {
     <div>
       {(isDoctorConnected) ? <Link to="/form_record"><Button>Record Patient Data</Button></Link>: null }
       {(isPatientConnected) ? <Button>View History</Button>: null }
-      {(!isDoctorConnected && !isPatientConnected) ? <div><Button>{constants.GET_STARTED_P}</Button><Link to="/doctor_registration"><Button>{constants.GET_STARTED_D}</Button></Link></div>: null} 
+      {(!isDoctorConnected && !isPatientConnected) ? <div><Link to="/patient_registration"><Button>{constants.GET_STARTED_P}</Button></Link><Link to="/doctor_registration"><Button>{constants.GET_STARTED_D}</Button></Link></div>: null} 
 
         {/* {isDoctorConnected && !isPatientConnected ? <Button>Record Patient Data</Button> : <Button>{constants.GET_STARTED_P}</Button>}
       <Link to="/patient_registration">

@@ -1,9 +1,7 @@
 import React from "react";
 import { CountryDropdown } from "react-country-region-selector";
 import PhoneInput from "react-phone-input-2";
-
 import { useFormik } from "formik";
-
 import './register.css'
 import TopBar from '../components/topBar/topBar';
 import styled from "styled-components";

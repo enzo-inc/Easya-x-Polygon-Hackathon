@@ -8,6 +8,7 @@ import DoctorRegistration from './pages/doctorRegistration';
 import PatientRegistration from './pages/patientRegistration';
 import FormRecord from './pages/formRecord';
 import RegisterDoctor from './templates/registerDoctor';
+import History from './components/history/history';
 
 
 export default function PanaceaApp() {
@@ -18,7 +19,7 @@ export default function PanaceaApp() {
         <Route path="doctor_registration" element={<DoctorRegistration />} />
         <Route path="patient_registration" element={<PatientRegistration />} />
         <Route path="form_record" element={<FormRecord/>} />
-
+        <Route path="history" element={<History />}/>
       </Routes>
     </BrowserRouter>
   );

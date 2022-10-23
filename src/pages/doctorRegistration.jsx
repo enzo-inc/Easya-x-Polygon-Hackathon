@@ -10,8 +10,6 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { DOCTOR_NFT_ABI, DOCTOR_NFT_ADDRESS } from "../config";
 import { ethers } from "ethers";
 import web3 from 'web3';
-import storeAsset from "../../scripts/store-asset-doctor.mjs"
-
 import styled from "styled-components";
 
 const Text = styled.text`
