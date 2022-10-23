@@ -6,6 +6,20 @@ import { useFormik } from "formik";
 
 import './register.css'
 import TopBar from '../components/topBar/topBar';
+import styled from "styled-components";
+
+const Text = styled.text`
+    font-size: 3.5em;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #396afc;  /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: SpaceMonoRegular;
+    font-weight: 700;
+    opacity: 80%;
+`
 
 const SignupForm = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
@@ -35,8 +49,7 @@ const SignupForm = () => {
   
   return (
     <form onSubmit={formik.handleSubmit} id="survey-form" >
-      <h1>Patient registration form</h1>
-
+      <Text>Patient registration form</Text>
       <p>
           Fill the form to register:
       </p>
