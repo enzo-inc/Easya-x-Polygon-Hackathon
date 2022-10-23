@@ -4,7 +4,7 @@ import PhoneInput from "react-phone-input-2";
 
 import { useFormik } from "formik";
 
-// import './register.css'
+import './register.css'
 import TopBar from '../components/topBar/topBar';
 
 const SignupForm = () => {
@@ -14,6 +14,7 @@ const SignupForm = () => {
 
   const formik = useFormik({
     initialValues: {
+
     firstName: "",
 
       lastName: "",
@@ -28,9 +29,7 @@ const SignupForm = () => {
 
       em_number: "",
 
-      address_1: "",
-
-      address_2: "",
+      address: "",
 
       country: "",
 
@@ -41,9 +40,9 @@ const SignupForm = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-
+  
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} id="survey-form" >
       <h1>Patient registration form</h1>
 
       <p>
@@ -85,56 +84,67 @@ const SignupForm = () => {
       {formik.touched.lastName && formik.errors.lastName ? (
         <div>{formik.errors.lastName}</div>
       ) : null}
+
+
       <fieldset>
         <div class="labels">Gender: *</div>
         <label class="m-b-xs">
           <input
             type="radio"
             name="survey-form-gender"
-            value={formik.values.gender}
-          />{" "}
-          Female
+            onBlur={formik.handleBlur}
+            value={"female"}
+            onChange={formik.handleChange}
+            //defaultChecked={formik.values.gender === "female"}
+          />Female{" "}
+      
         </label>
         <label class="m-b-xs">
           <input
             type="radio"
             name="survey-form-gender"
-            value={formik.values.gender}
-          />{" "}
-          Male
+            onBlur={formik.handleBlur}
+            //checked={formik.values.gender === 'female'}
+            value={"male"}
+            onChange={formik.handleChange}
+            //defaultChecked={formik.values.gender === "female"}
+
+          />Male{" "}
         </label>
       </fieldset>
+
+
       {formik.touched.gender && formik.errors.gender ? (
         <div>{formik.errors.gender}</div>
       ) : null}
 
-<fieldset id="">
-        <label for="number" id="number-label">
+    <fieldset id="">
+        <label for="dob" id="fob-label">
         Birth date *
           <input
-            class="birthdate"
-            type="text"
-            id="date"
-            name="date"
+            class="dob"
+            type="date"
+            id="dob"
+            name="dob"
             placeholder="Enter your birthdate (required)"
             required
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.date}
+            value={formik.values.dob}
           />
         </label>
       </fieldset>
 
-     
-
+    
       <fieldset id="">
-        <label for="address" id="workAddress-label">
-          Contact address: *
+      <label for="address" id="address-label">
+          Work address: *
           <input
+            class="address"
             type="text"
-            id="workAddress"
-            name="workAddress"
-            placeholder="Street, Street number"
+            id="address"
+            name="address"
+            placeholder="City, Region"
             required
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -142,16 +152,16 @@ const SignupForm = () => {
           />
          
           <CountryDropdown
-            name="country_work"
-            value={formik.values.country_work}
+            name="country"
+            class="country"
+            value={formik.values.country}
             onChange={(_, e) => formik.handleChange(e)}
             onBlur={formik.country}
           />
+          Postcode *
           <input
             class="workAddress_1"
             type="text"
-            inputmode="numeric"
-            pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
             id="postcode"
             name="postcode"
             placeholder="Postcode"
@@ -166,7 +176,7 @@ const SignupForm = () => {
         <div>{formik.errors.postcode}</div>
       ) : null}
 
-      {formik.touched.workAddress_2 && formik.errors.workAddress_2 ? (
+      {formik.touched.address && formik.errors.address ? (
         <div>{formik.errors.workAddress_2}</div>
       ) : null}
 
@@ -196,14 +206,28 @@ const SignupForm = () => {
       <fieldset>
         <label for="number" id="number-label">
           Phone number: *
-          <PhoneInput
+          {/* <PhoneInput
+            type="text"
+            name="survey-phone"
             country={"gb"}
             placeholder={"Enter your number"}
             //onChange={(e) => formik.handleChange(e)}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.number}
+            
+          /> */}
+          <input
+            placeholder="Enter your work address (required)"
+            id="number"
+            name="number"
+            type="text"
+            require
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.number}
           />
+
         </label>
       </fieldset>
 
@@ -214,25 +238,40 @@ const SignupForm = () => {
       <fieldset>
         <label for="em_number" id="number-label">
           Emergency contact: *
-          <PhoneInput
+          {/* <PhoneInput
             country={"gb"}
             placeholder={"Enter emergency contact"}
             //onChange={(e) => formik.handleChange(e)}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.number_em}
+          /> */}
+
+          <input
+            placeholder="Enter your work address (required)"
+            id="em_number"
+            name="em_number"
+            type="em_number"
+            require
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.em_number}
           />
         </label>
       </fieldset>
 
-      <button type="submit">Submit</button>
+      {formik.touched.em_number && formik.errors.em_number ? (
+        <div>{formik.errors.em_number}</div>
+      ) : null}
+
+      <button type="submit" id="submit" class="btn">Submit</button>
     </form>
   );
 };
 
 export default function PatientRegistration() {
   return <>
-    <TopBar />
+    <div class="topbar"><TopBar/></div>
     <SignupForm />;
   </>
 }

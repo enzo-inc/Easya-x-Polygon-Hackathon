@@ -6,6 +6,7 @@ import App from './app/App.js';
 import reportWebVitals from './reportWebVitals';
 import DoctorRegistration from './pages/doctorRegistration';
 import PatientRegistration from './pages/patientRegistration';
+import FormRecord from './pages/formRecord';
 import RegisterDoctor from './templates/registerDoctor';
 
 
@@ -16,6 +17,8 @@ export default function PanaceaApp() {
         <Route path="/"  element={<App />} />
         <Route path="doctor_registration" element={<DoctorRegistration />} />
         <Route path="patient_registration" element={<PatientRegistration />} />
+        <Route path="form_record" element={<FormRecord/>} />
+
       </Routes>
     </BrowserRouter>
   );
