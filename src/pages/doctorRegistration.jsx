@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -7,8 +7,61 @@ import "react-phone-input-2/lib/style.css";
 import "./register-doc.css";
 import TopBar from '../components/topBar/topBar';
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import { DOCTOR_NFT_ABI, DOCTOR_NFT_ADDRESS } from "../config";
+import { ethers } from "ethers";
+import web3 from 'web3';
 
 const SignupForm = () => {
+
+    var [isConnected, setConnected] = useState(false);
+
+    useEffect(() => {
+        connectWallet();
+      })
+    
+      async function connectWallet() {
+        if (!window.ethereum) {
+          return alert("Metamask not installed or not enabled");
+        }
+    
+        let account = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+    
+        console.log(account)
+    
+        if (account) {
+            setConnected(true)
+        } 
+      }
+
+    async function mintNFT(firstName, lastName, medicalNumber) {
+        if (isConnected) {
+
+            // typeof won't try to evaluate "window", it will only try to get its type,
+            // in our case in Node.js: "undefined"
+            if (typeof window !== "undefined") {
+              const { ethereum } = window;
+              const provider = new ethers.providers.Web3Provider(ethereum);
+              const signer = provider.getSigner();
+              // get contract instance
+              const contract = new ethers.Contract(
+                DOCTOR_NFT_ADDRESS,
+                DOCTOR_NFT_ABI,
+                signer
+              );
+      
+              const wethTx = await contract.mintNFT(signer.getAddress(), firstName, lastName, medicalNumber, "", {
+                gasLimit: 3000000,
+              });
+      
+              await wethTx.wait();
+            } else {
+              console.error("error: ");
+            }
+          }
+    }
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -36,6 +89,8 @@ const SignupForm = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      mintNFT(values.firstName, values.lastName, values.license);
+     
     }
   });
   return (
