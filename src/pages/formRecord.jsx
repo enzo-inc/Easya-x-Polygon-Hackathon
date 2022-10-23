@@ -49,11 +49,13 @@ const SignupForm = () => {
   
   return (
     <form onSubmit={formik.handleSubmit} id="survey-form" >
-      <Text>Patient registration form</Text>
-      <p>
-          Fill the form to register:
-      </p>
+        <div class="m-b-md text-center">
 
+      <Text>Record form</Text>
+      <p>
+          Fill the record form:
+      </p>
+    </div>
       <fieldset id="">
         <label for="doc_address" id="doc_address-label">
           Doctor's address: * 
@@ -76,15 +78,12 @@ const SignupForm = () => {
       <fieldset>
                 <label for="dropdown">
                    Type of treatment? *
-                   <select id="dropdown" name="dropdown" class="m-t-xs">
+                   <select id="dropdown" name="dropdown" class="m-t-xs" onChange={formik.handleChange}>
                       <option value="GP consultation" selected>GP consultation</option>
                       <option value="Lab results">Lab results</option>
                       <option value="Surgery">Surgery</option>
                       <option value="Specialist consultation">Specialist consultation</option>
-                      <option value="other">Other (Mention details in the "Disease description section")</option>
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.doc_address}
+                      <option value="other">Other (Mention details in the "Additional information" section)</option>
                     </select>
                 </label>
         </fieldset>
@@ -95,7 +94,6 @@ const SignupForm = () => {
                 <label class="m-b-xs">
                 <input type="radio" 
                     name="survey-form-gender" 
-                    checked 
                     onBlur={formik.handleBlur}
                     value={"acute"}
                     onChange={formik.handleChange}
@@ -139,25 +137,32 @@ const SignupForm = () => {
       ) : null}
 
             <fieldset>
-                  <label for="survey-form-suggestions">
+            <label for="description">
                   Disease description?
-                  <textarea id="survey-form-suggestions" 
-                    maxlength="300"> 
+                  <textarea 
+                  id="description"
+                  name="description"
+                  type="text"
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
+                  maxlength="300"> 
                   </textarea>
                   </label>  
            </fieldset>
 
            <fieldset>
               <label for="documents">
-                Add suplementary documents (JPG, JPEG, PNG, PDF)
+                Add additional information
                 <input 
-                type="file" 
+                multiple
+                type="text" 
                 id="documents" 
                 name="documents" 
-                accept=".jpg,.jpeg,.png,.pdf"
-                onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.documents} />
+                onChange = {formik.handleChange}
+                value={formik.values.documents} 
+
+            />
                 </label>
             </fieldset>
 
