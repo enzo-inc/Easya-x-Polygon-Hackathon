@@ -7,6 +7,20 @@ import "react-phone-input-2/lib/style.css";
 import "./register-doc.css";
 import TopBar from '../components/topBar/topBar';
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import styled from "styled-components";
+
+const Text = styled.text`
+    font-size: 3.5em;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #396afc;  /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: SpaceMonoRegular;
+    font-weight: 700;
+    opacity: 80%;
+`
 
 const SignupForm = () => {
   const formik = useFormik({
@@ -41,7 +55,7 @@ const SignupForm = () => {
   return (
     <form onSubmit={formik.handleSubmit} id="survey-form" name="survey-form">
       <div class="m-b-md text-center">
-        <h1 id="title">Doctor registration form</h1>
+        <Text>Doctor registration form</Text>
         <p id="description" class="description">
           Fill the form to register:
         </p>
