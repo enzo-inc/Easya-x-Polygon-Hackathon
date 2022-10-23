@@ -8,6 +8,7 @@ import AllSection from '../components/learn/allSection';
 import tw from 'tailwind-styled-components';
 import Footer from '../components/footer/footer';
 
+
 const AppWrapper = styled.section`
   text-align: center;
 `

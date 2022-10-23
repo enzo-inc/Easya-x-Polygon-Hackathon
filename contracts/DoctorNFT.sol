@@ -10,27 +10,19 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract DoctorNFT is ERC721URIStorage, Ownable {
    using Counters for Counters.Counter;
    Counters.Counter private _tokenIds;
-   string _fName;
-   string _lName;
-   string _medicalNumber;
 
    constructor () ERC721("DoctorNFT", "DNFT") {}
 
-   function mintNFT(address recipient, 
-                    string memory fName,
-                    string memory lName,
-                    string memory medicalNumber,
-                    string memory tokenURI)
-       public
+   function mintNFT(address recipient, string memory tokenURI)
+       public onlyOwner
        returns (uint256)
    {
        _tokenIds.increment();
+
        uint256 newItemId = _tokenIds.current();
        _mint(recipient, newItemId);
        _setTokenURI(newItemId, tokenURI);
-       _fName = fName;
-       _lName = lName;
-       _medicalNumber = medicalNumber;
+
        return newItemId;
    }
 }
